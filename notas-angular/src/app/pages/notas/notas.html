@@ -1,0 +1,46 @@
+<main class="pagina">
+  <header>
+    <h1>Mis Notas Rápidas</h1>
+    <p>Guarda tus ideas y recordatorios.</p>
+  </header>
+
+  <form class="formulario" [formGroup]="notaForm"(ngSubmit)="guardar()">
+    <h2>Nueva nota</h2>
+    <label for="titulo">Título</label>
+    <input id="titulo" type="text" formControlName="titulo" placeholder="Título de la nota">
+
+    @if (notaForm.controls.titulo.invalid && notaForm.controls.titulo.touched) {
+      <small>El título es obligatorio.</small>
+    }
+
+    <label for="contenido">Contenido</label>
+    <input id="contenido" type="text" formControlName="contenido" placeholder="Escribe tu nota...">
+
+    @if (notaForm.controls.contenido.invalid && notaForm.controls.contenido.touched) {
+      <small>El contenido es obligatorio.</small>
+    }
+
+    <button type="submit" [disabled]="guardando()">
+      {{ guardando() ? 'Guardando...' : 'Guardar' }}
+    </button>
+
+    @if (mensajeError()) {
+      <p class="error">{{ mensajeError() }}</p>
+    }
+  </form>
+
+  <section class="seccion-notas">
+    <h2>Notas guardadas ({{ notas().length }})</h2>
+    
+    <div class="grid">
+      @for (nota of notas(); track nota._id) {
+        <article class="nota">
+          <h3>{{ nota.titulo }}</h3>
+          <p>{{ nota.contenido }}</p>
+        </article>
+      } @empty {
+        <p>No tienes notas guardadas todavía.</p>
+      }
+    </div>
+  </section>
+</main>
