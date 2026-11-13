@@ -1,0 +1,17 @@
+Se investigo con uso de la herrmienta de IA lo siguiente:
+
+Primero investigue para qué sirve .trim(), ya que no lo habia utilizado antes, 
+entendí que elimina los espacios que hay, y que nos ayuda a evitar que se guarden titulos 
+o contenidos que solo tengan espacios.
+
+Tambien revise Pick<>, que sirve para crear un tipo tomando solamente algunas propiedades 
+de una interfaz, en este ejercicio se utilizo para tomar titulo y contenido de Nota sin incluir el id.
+
+Tambien me quedo duda sobre la diferencia entre set() y update() en las señales de angular, 
+set() reemplaza el valor de la señal y update() permite calcular uno nuevo a partir del anterior, 
+esto se utilizo para agregar una nota al arreglo y mostrarla sin tener que recargar toda la página.
+
+Tambien de como se utilizaba tap() en el servicio, revise como funciona para 
+ejecutar una accion cuando llega la respuesta del POST y actualizar la señal con la nota guardada.
+
+Por ultimo la tome de ayuda para hacer rapidamente el .html y el .css sencillos de la interfaz.
